@@ -31,7 +31,7 @@ void streamAudioBuffer(const void* data, size_t length, int sampleRate, int chan
 
     AudioQueueBufferRef bufferRef;
     AudioQueueAllocateBuffer(audioQueue, length, &bufferRef);
-    std::memcpy(bufferRef->mAudioData, data, length);
+    memcpy(bufferRef->mAudioData, data, length);
     bufferRef->mAudioDataByteSize = static_cast<UInt32>(length);
 
     AudioQueueEnqueueBuffer(audioQueue, bufferRef, 0, nullptr);
